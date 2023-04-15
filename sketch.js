@@ -35,6 +35,14 @@ buttons.forEach(btn => btn.addEventListener(`click`, function(e){
         case "btn-color-mode":
             btnColorMode();
             break;
+    
+        case "btn-eraser":
+            btnEraser();
+            break;
+            
+        case "btn-clear":
+            btnClear();
+            break;
     }
 }))
 
@@ -46,4 +54,22 @@ function btnColorMode() {
     divs.forEach(div => div.addEventListener(`mouseover`, function(e){
         e.target.classList.add(`color-black`);
     }))
+}
+
+/*
+erase div on click
+*/
+function btnEraser() {
+    const divs = document.querySelectorAll(`.block`);
+    divs.forEach(div => div.addEventListener(`mouseover`, function(e){
+        e.target.classList.remove(`color-black`);
+    }))
+}
+
+/*
+clear grid
+*/
+function btnClear() {
+    const divs = document.querySelectorAll(`.block`);
+    divs.forEach(div => div.classList.remove(`color-black`));
 }
