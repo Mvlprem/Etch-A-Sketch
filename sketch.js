@@ -18,4 +18,32 @@ function createGrid(gridSize){
     }
 }
 
+/*
+these functions are invoked on page load
+*/
 createGrid(defaultGridSize.textContent);
+btnColorMode();
+
+/*
+add eventListeners to buttons and
+invoking respective functions on click
+*/
+const buttons = document.querySelectorAll(`.btn-container`);
+buttons.forEach(btn => btn.addEventListener(`click`, function(e){
+    let button = e.target.classList.value;
+    switch(button){
+        case "btn-color-mode":
+            btnColorMode();
+            break;
+    }
+}))
+
+/*
+change background-color on mouse hover
+*/
+function btnColorMode() {
+    const divs = document.querySelectorAll(`.block`);
+    divs.forEach(div => div.addEventListener(`mouseover`, function(e){
+        e.target.classList.add(`color-black`);
+    }))
+}
