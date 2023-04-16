@@ -67,6 +67,9 @@ button {
     font-size: 1.5vw;
 }
 
-.color-black {
-    background-color: black;
+input[type=color] {
+    width: 75px;
+    height: 50px;
+    border: none;
+    background-color: #5CDB95;
 }
