@@ -51,8 +51,10 @@ change background-color on mouse hover
 */
 function btnColorMode() {
     const divs = document.querySelectorAll(`.block`);
+    const inputColor = document.querySelector(`.input-color`);
+    inputColor.addEventListener(`input`, () => { inputColor.value })
     divs.forEach(div => div.addEventListener(`mouseover`, function(e){
-        e.target.classList.add(`color-black`);
+        e.target.style.backgroundColor = inputColor.value;
     }))
 }
 
@@ -62,7 +64,7 @@ erase div on click
 function btnEraser() {
     const divs = document.querySelectorAll(`.block`);
     divs.forEach(div => div.addEventListener(`mouseover`, function(e){
-        e.target.classList.remove(`color-black`);
+        e.target.style.backgroundColor = "white";
     }))
 }
 
@@ -71,5 +73,5 @@ clear grid
 */
 function btnClear() {
     const divs = document.querySelectorAll(`.block`);
-    divs.forEach(div => div.classList.remove(`color-black`));
+    divs.forEach(div => div.style.backgroundColor = "white");
 }
