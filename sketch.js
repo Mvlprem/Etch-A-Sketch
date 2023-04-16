@@ -1,5 +1,5 @@
 const gridContainer = document.querySelector(`.grid-container`);
-const defaultGridSize = document.querySelector(`.grid-size`);
+const defaultGridSize = 16;
 
 /*
 creates a grid of given size
@@ -21,7 +21,7 @@ function createGrid(gridSize){
 /*
 these functions are invoked on page load
 */
-createGrid(defaultGridSize.textContent);
+createGrid(defaultGridSize);
 btnColorMode();
 
 /*
@@ -74,4 +74,28 @@ clear grid
 function btnClear() {
     const divs = document.querySelectorAll(`.block`);
     divs.forEach(div => div.style.backgroundColor = "white");
+}
+
+/*
+create new grid of user choice by
+removing existing grid
+*/
+const inputRange = document.querySelector(`.input-range`);
+const size = document.querySelectorAll(`.size`);
+inputRange.addEventListener(`input`, (e) => {
+    size.forEach(size => size.textContent = inputRange.value);
+    removeGrid();
+    createGrid(inputRange.value);
+    btnColorMode();
+})
+
+/*
+removes entire grid
+*/
+function removeGrid(){
+    let child = gridContainer.lastElementChild;
+    while(child){
+        gridContainer.removeChild(child);
+        child = gridContainer.lastElementChild;
+    }
 }
