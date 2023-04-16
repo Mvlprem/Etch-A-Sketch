@@ -73,3 +73,12 @@ input[type=color] {
     border: none;
     background-color: #5CDB95;
 }
+
+.grid-size {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 1.3vw;
+    font-weight: bold;
+    accent-color: #05386B;
+}
